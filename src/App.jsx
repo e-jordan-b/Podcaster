@@ -24,6 +24,7 @@ const router = createBrowserRouter(
         <Route path="podcast/:podcastid" element={<PodcastDetail />} />
         <Route path="podcast/:podcastid/episode/:episodeid" element={<EpisodeDetail />} />
       </Route>
+      <Route path="*" />
     </Route>,
   ),
 );
