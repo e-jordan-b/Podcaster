@@ -2,17 +2,19 @@ import { useEffect, useState } from 'react';
 import { fetchPodcasts } from '../services/api';
 
 export function usePodcasts() {
-  const [podcasts, setPodcasts] = useState(null);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function getData() {
       try {
         setLoading(true);
         const response = await fetchPodcasts();
-        setPodcasts(response);
-      } catch (error) {
-        console.error('Cannot get date', error);
+        console.log(response);
+        setData(response);
+      } catch (err) {
+        setError(err);
       } finally {
         setLoading(false);
       }
@@ -21,5 +23,5 @@ export function usePodcasts() {
     getData();
   }, []);
 
-  return { podcasts, loading };
+  return { data, loading, error };
 }

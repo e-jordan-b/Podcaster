@@ -1,0 +1,38 @@
+.podcast {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  border-radius: 50%;
+  width: 150px;
+  position: relative;
+  top: 80px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+  width: 100%;
+  min-height: 180px;
+}
+
+.info_containter {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 90px;
+}
+
+.author-name {
+  margin-left: 10px;
+}
