@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchBar.css';
 
 function SearchBar({
   query, handleChange, podcasts,
@@ -9,7 +10,7 @@ function SearchBar({
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
-      <label htmlFor="search-bar">{podcasts.length}</label>
+      <label htmlFor="search-bar" className="podcast-length">{podcasts.length}</label>
       <input
         value={query}
         className="search-input"
