@@ -11,7 +11,6 @@ export function usePodcasts() {
       try {
         setLoading(true);
         const response = await fetchPodcasts();
-        console.log(response);
         setData(response);
       } catch (err) {
         setError(err);

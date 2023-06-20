@@ -7,8 +7,9 @@ function AppLayout() {
     <div className="page">
       <div className="root-layout">
         <header>
-          <nav>
+          <nav className="navBar">
             <NavLink to="/">Podcaster</NavLink>
+            <hr />
           </nav>
         </header>
       </div>

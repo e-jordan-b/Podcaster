@@ -20,7 +20,7 @@ h3 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
   width: 100%;
@@ -28,8 +28,7 @@ h3 {
 }
 
 .info_containter {
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 0 10px;
   margin-top: 90px;
 }
 

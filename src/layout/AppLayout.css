@@ -8,7 +8,31 @@
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  max-width: 1500px;
+}
+
+.navBar {
+  width: 100%;
+  max-width: 1500px;
+  font-size: 30px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root-layout {
+  width: 100%;
+}
+
+hr {
   max-width: 1500px;
 }
