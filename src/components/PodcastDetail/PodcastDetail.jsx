@@ -28,7 +28,7 @@ function PodcastDetail() {
             <Details key={podcast.trackId} podcast={podcast} />
           ))
         ) : (
-          <p>No data available.</p>
+          null
         )}
       </tbody>
     </table>
