@@ -6,7 +6,7 @@ function Podcast({ podcast, id }) {
   const url = `podcast/${id}`;
   return (
     <li className="podcast">
-      <img src={podcast['im:image'][2].label} alt="" />
+      <img className="home-image" src={podcast['im:image'][2].label} alt="" />
       <div className="container">
         <Link className="link-to-details" to={url}>
           <div className="info_containter">
