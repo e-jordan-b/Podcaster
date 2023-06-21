@@ -13,25 +13,36 @@ function PodcastDetail() {
   // if (data) { console.log(JSON.parse(data.contents)); }
   const details = data ? JSON.parse(data.contents) : null;
   return (
-    <table className="content-table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Date</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
+    <div>
+      <div className="number-episodes">
+        <h1>
+          Episodes:
+          {' '}
+          {details ? details.results.length - 1 : null}
+        </h1>
+      </div>
+      <section className="table-information">
+        <table className="content-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
 
-      <tbody className="table-body">
-        {details ? (
-          details.results.map((podcast) => (
-            <Details key={podcast.trackId} podcast={podcast} />
-          ))
-        ) : (
-          null
-        )}
-      </tbody>
-    </table>
+          <tbody className="table-body">
+            {details ? (
+              details.results.map((podcast) => (
+                <Details key={podcast.trackId} podcast={podcast} />
+              ))
+            ) : (
+              null
+            )}
+          </tbody>
+        </table>
+      </section>
+    </div>
   );
 }
 

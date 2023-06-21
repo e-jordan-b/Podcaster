@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Details.css';
 
 function Details({ podcast }) {
+  // const { podcastid } = useParams();
+
   function millisToMinutesAndSeconds(millis) {
     const minutes = Math.floor(millis / 60000);
     const seconds = ((millis % 60000) / 1000).toFixed(0);
@@ -14,7 +17,16 @@ function Details({ podcast }) {
 
   return (
     <tr className="body-tr">
-      <td>{podcast.trackName}</td>
+
+      <td>
+        <Link to={{
+          pathname: `episode/${podcast.trackId}`,
+          state: { message: 'hello, im a passed message!' },
+        }}
+        >
+          {podcast.trackName}
+        </Link>
+      </td>
       <td>{formattedDate}</td>
       <td>{trackTimeInSeconds}</td>
     </tr>
