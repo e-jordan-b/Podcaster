@@ -1,0 +1,11 @@
+td {
+  padding: 12px 15px;
+}
+
+.body-tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.body-tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}

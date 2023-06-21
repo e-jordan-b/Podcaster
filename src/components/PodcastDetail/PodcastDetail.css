@@ -1,0 +1,15 @@
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1em;
+  min-width: 400px;
+}
+
+.content-table thead tr {
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th {
+  padding: 12px 15px;
+}
