@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Details.css';
 
@@ -14,16 +14,10 @@ function Details({ podcast }) {
 
   const date = new Date(podcast.releaseDate);
   const formattedDate = date.toLocaleDateString();
-
   return (
     <tr className="body-tr">
-
       <td>
-        <Link to={{
-          pathname: `episode/${podcast.trackId}`,
-          state: { message: 'hello, im a passed message!' },
-        }}
-        >
+        <Link to={`episode/${podcast.trackId}`}>
           {podcast.trackName}
         </Link>
       </td>
