@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLocation, useParams } from 'react-router';
 import { usePodcasts } from '../../hooks/usePodcasts';
+import './EpisodeDetails.css';
 
 function EpisodeDetail() {
   const { podcastid, episodeid } = useParams();
   const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${podcastid}&media=podcast&entity=podcastEpisode`)}`;
-  const { data, isLoading } = usePodcasts(url);
+  const { data } = usePodcasts(url);
   const details = data ? JSON.parse(data.contents) : null;
 
   function findPodcastByTrackId(episodeid) {
@@ -15,12 +16,17 @@ function EpisodeDetail() {
     return null;
   }
   const episodeDetails = findPodcastByTrackId(Number(episodeid));
+  console.log(episodeDetails);
   return (
     episodeDetails ? (
       <div>
-        <div>
+        <div className="episode-details-container">
           <h1>{episodeDetails.trackName}</h1>
           <p dangerouslySetInnerHTML={{ __html: episodeDetails.description }} />
+          <audio controls className="audio-track">
+            <source src={`${episodeDetails.episodeUrl}`} type="audio/mpeg" />
+            <track src={`${episodeDetails.closedCaptioning}`} kind="captions" label="English" srcLang="en" default />
+          </audio>
         </div>
       </div>
     ) : null

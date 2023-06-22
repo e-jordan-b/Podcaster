@@ -1,0 +1,20 @@
+.episode-details-container {
+  width: 800px;
+  padding: 10px 25px;
+  margin: 25px 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.episode-details-container h1 {
+  margin: 5px 0;
+  font-size: 30px;
+}
+
+.audio-track {
+  width: 100%;
+  margin-top: 50px;
+}
