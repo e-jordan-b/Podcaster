@@ -5,59 +5,64 @@ const CACHE_EXPIRATION = 24 * 60 * 60 * 1000;
 
 export function usePodcasts(url) {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  function getCachedData() {
-    const cachedData = JSON.parse(localStorage.getItem(url));
-
-    if (cachedData && Date.now() - cachedData.timestamp < CACHE_EXPIRATION) {
-      return cachedData.data;
-    }
-
-    return null;
-  }
-
-  function cacheData(url, data) {
-    const cachedData = {
-      timestamp: Date.now(),
-      data,
-    };
-
-    localStorage.setItem(url, JSON.stringify(cachedData));
-  }
-
   useEffect(() => {
-    async function getData() {
-      // try {
-      //   setLoading(true);
-      //   const response = await fetchPodcasts(url);
-      //   setData(response);
-      // } catch (err) {
-      //   setError(err);
-      // } finally {
-      //   setLoading(false);
-      // }
-      setLoading(true);
+    let isMounted = true;
+
+    async function fetchData() {
       try {
         const cachedData = getCachedData(url);
 
         if (cachedData) {
-          setData(cachedData);
+          if (isMounted) {
+            setData(cachedData);
+            setLoading(false);
+          }
         } else {
+          if (!url) return;
           const response = await fetchPodcasts(url);
-          setData(response);
-          cacheData(url, response);
+          if (isMounted) {
+            setData(response);
+            cacheData(url, response);
+            setLoading(false);
+          }
         }
       } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
+        if (isMounted) {
+          setError(err);
+          setLoading(false);
+        }
       }
     }
 
-    getData();
-  }, [url]);
+    function getCachedData() {
+      const cachedData = JSON.parse(localStorage.getItem(url));
+
+      if (cachedData && Date.now() - cachedData.timestamp < CACHE_EXPIRATION) {
+        setLoading(false);
+        return cachedData.data;
+      }
+
+      return null;
+    }
+
+    function cacheData() {
+      const cachedData = {
+        timestamp: Date.now(),
+        data,
+      };
+
+      localStorage.setItem(url, JSON.stringify(cachedData));
+    }
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return { data, loading, error };
 }

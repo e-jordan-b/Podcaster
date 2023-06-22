@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { usePodcasts } from '../hooks/usePodcasts';
 import './PodcastLayout.css';
 
@@ -25,10 +26,14 @@ function PodcastLayout() {
           <aside className="detail-sidebar">
             <div className="details-containter">
               <div className="image-containter">
-                <img src={details.results[0].artworkUrl100} alt="" />
+                <Link to={`podcast/${podcastid}`}>
+                  <img src={details.results[0].artworkUrl100} alt="" />
+                </Link>
               </div>
               <div className="title-containter">
-                <h3>{details.results[0].trackName}</h3>
+                <Link to={`podcast/${podcastid}`}>
+                  <h3>{details.results[0].trackName}</h3>
+                </Link>
                 <p>
                   by
                   {' '}

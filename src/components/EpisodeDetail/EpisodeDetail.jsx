@@ -16,7 +16,7 @@ function EpisodeDetail() {
     return null;
   }
   const episodeDetails = findPodcastByTrackId(Number(episodeid));
-  console.log(episodeDetails);
+
   return (
     episodeDetails ? (
       <div>
