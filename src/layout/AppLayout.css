@@ -39,12 +39,16 @@ main {
 }
 
 .spinner {
-  border: 4px solid rgb(96, 120, 255);
+  border: 4px solid rgb(74, 167, 237);
   width: 36px;
   height: 36px;
   border-radius: 50%;
   border-left-color: transparent;
   animation: spin 1s linear infinite;
+}
+
+.navbar__title{
+  color: rgb(37, 135, 210);
 }
 
 @keyframes spin {

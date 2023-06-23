@@ -3,6 +3,11 @@
   width: 75%;
 }
 
+.details__link {
+  color: rgb(29, 133, 212);
+  font-weight: 600;
+}
+
 .details__body-tr {
   border-bottom: 1px solid #dddddd;
 }

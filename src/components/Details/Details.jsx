@@ -15,7 +15,7 @@ function Details({ podcast }) {
   return (
     <tr className="details__body-tr">
       <td className="details__body-td">
-        <Link to={`episode/${podcast.trackId}`}>
+        <Link to={`episode/${podcast.trackId}`} className="details__link">
           {podcast.trackName}
         </Link>
       </td>

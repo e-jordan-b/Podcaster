@@ -11,7 +11,7 @@ function AppLayout() {
       <div className="root-layout">
         <header>
           <nav className="navbar">
-            <NavLink to="/">Podcaster</NavLink>
+            <NavLink to="/" className="navbar__title">Podcaster</NavLink>
             {loading && (<div className="spinner" />)}
           </nav>
         </header>
