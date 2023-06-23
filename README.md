@@ -2,7 +2,9 @@
 
 ## Description
 
-This repository contains the source code for the Podcaster application.
+This repository contains the source code for the Podcaster application.<br>
+**There are a couple of podcasts that take a long time to fetch.**<br>
+The app will be runing on : http://localhost:5173/
 
 ## Installation
 
