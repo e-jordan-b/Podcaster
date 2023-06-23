@@ -1,4 +1,4 @@
-.podcast-length {
+.search-bar__podcast-length {
   font-size: 30px;
   background-color: rgb(74, 167, 237);
   color: white;
@@ -14,7 +14,7 @@ form {
   align-items: center;
 }
 
-.search-input {
+.search-bar__input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

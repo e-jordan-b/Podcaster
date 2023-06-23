@@ -5,14 +5,14 @@ import { usePodcasts } from '../hooks/usePodcasts';
 
 function AppLayout() {
   const { loading } = usePodcasts();
-  console.log(loading);
+
   return (
-    <div className="page">
+    <div className="app-layout">
       <div className="root-layout">
         <header>
-          <nav className="navBar">
+          <nav className="navbar">
             <NavLink to="/">Podcaster</NavLink>
-            {loading ? (<div className="spinner" />) : null}
+            {loading && (<div className="spinner" />)}
           </nav>
         </header>
       </div>

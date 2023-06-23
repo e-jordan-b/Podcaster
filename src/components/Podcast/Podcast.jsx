@@ -5,11 +5,11 @@ import './Podcast.css';
 function Podcast({ podcast, id }) {
   const url = `podcast/${id}`;
   return (
-    <li className="podcast">
-      <img className="home-image" src={podcast['im:image'][2].label} alt="" />
-      <div className="container">
-        <Link className="link-to-details" to={url}>
-          <div className="info_containter">
+    <li className="podcast-item">
+      <img className="podcast-item__image" src={podcast['im:image'][2].label} alt="" />
+      <div className="podcast-item__container">
+        <Link className="podcast-item__link" to={url}>
+          <div className="podcast-item__info">
             <h3>{podcast['im:name'].label.toUpperCase()}</h3>
             <p>
               Author:

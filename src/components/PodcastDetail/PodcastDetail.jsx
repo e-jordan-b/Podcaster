@@ -6,23 +6,24 @@ import './PodcastDetail.css';
 
 function PodcastDetail() {
   const { podcastid } = useParams();
-  // const url = `https://itunes.apple.com/lookup?id=${podcastid}`;
-  // const url = `https://itunes.apple.com/lookup?id=${podcastid}&media=podcast&entity=podcastEpisode`;
   const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${podcastid}&media=podcast&entity=podcastEpisode`)}`;
   const { data } = usePodcasts(url);
-  // if (data) { console.log(JSON.parse(data.contents)); }
   const details = data ? JSON.parse(data.contents) : null;
+  const episodeCount = details ? details.results.length - 1 : null;
+
   return (
+    details
+    && (
     <div>
-      <div className="number-episodes">
+      <div className="podcast-detail__number-episodes">
         <h1>
           Episodes:
           {' '}
-          {details ? details.results.length - 1 : null}
+          {episodeCount}
         </h1>
       </div>
-      <section className="table-information">
-        <table className="content-table">
+      <section className="podcast-detail__table-information">
+        <table className="podcast-detail__content-table">
           <thead>
             <tr>
               <th>Title</th>
@@ -31,18 +32,18 @@ function PodcastDetail() {
             </tr>
           </thead>
 
-          <tbody className="table-body">
-            {details ? (
-              details.results.map((podcast) => (
+          <tbody className="podcast-detail__table-body">
+            {details.results
+              .slice(1)
+              .map((podcast) => (
                 <Details key={podcast.trackId} podcast={podcast} />
-              ))
-            ) : (
-              null
-            )}
+              ))}
           </tbody>
         </table>
       </section>
     </div>
+    )
+
   );
 }
 
