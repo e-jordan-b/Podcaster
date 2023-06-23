@@ -7,7 +7,7 @@ function SearchBar({ query, handleChange, podcasts }) {
   };
 
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
+    <form onSubmit={(event) => event.preventDefault()} data-testid="search-bar">
       <label htmlFor="search-bar" className="search-bar__podcast-length">{podcasts.length}</label>
       <input
         value={query}

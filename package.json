@@ -7,7 +7,8 @@
     "dev": "vite --mode development",
     "build": "vite --mode production",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -34,11 +35,10 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "file-loader": "^6.2.0",
+    "jsdom": "^22.1.0",
     "style-loader": "^3.3.3",
     "vite": "^4.3.9",
     "vitest": "^0.32.2",
-    "webpack": "^5.88.0",
-    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   }
 }
