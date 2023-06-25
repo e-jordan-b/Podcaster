@@ -18,4 +18,54 @@
 .episode-detail__audio-track {
   width: 100%;
   margin-top: 50px;
+  height: 45px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgb(81, 81, 81);
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+audio::-webkit-media-controls-mute-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: #fff;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}
+
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .episode-detail__container {
+    width: 100%;
+    min-width: 0px;
+
+  }
+  .episode-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    padding: 20px 20px;
+  }
 }

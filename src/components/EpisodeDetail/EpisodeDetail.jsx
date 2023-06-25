@@ -19,7 +19,7 @@ function EpisodeDetail() {
 
   return (
     episodeDetails && (
-      <div>
+      <div className="episode-detail">
         <div className="episode-detail__container">
           <h1>{episodeDetails.trackName}</h1>
           <p dangerouslySetInnerHTML={{ __html: episodeDetails.description }} />

@@ -7,29 +7,19 @@ export function usePodcasts(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
-
     async function fetchData() {
+      setLoading(true);
       try {
-        setLoading(true);
         const response = await fetchPodcastsData(url);
-
-        if (isMounted) {
-          setData(response);
-          setLoading(false);
-        }
+        setData(response);
       } catch (err) {
-        if (isMounted) {
-          setError(err);
-        }
+        setError(err);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchData();
-
-    return () => {
-      isMounted = false;
-    };
   }, [url]);
 
   return { data, loading, error };

@@ -2,8 +2,7 @@
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 1em;
-  min-width: 800px;
-  max-width: 800px;
+  width: 800px;
 }
 
 .podcast-detail__content-table thead {
@@ -35,4 +34,20 @@
 .podcast-detail__number-episodes h1 {
   margin-left: 20px;
   font-size: 30px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+  .podcast-detail__content-table {
+    width: 100%;
+  }
+  .details_containter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }

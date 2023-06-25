@@ -22,11 +22,15 @@ function getCachedData(url) {
 }
 
 function cacheData(url, data) {
-  const cachedData = {
-    timestamp: Date.now(),
-    data,
-  };
-  localStorage.setItem(url, JSON.stringify(cachedData));
+  try {
+    const cachedData = {
+      timestamp: Date.now(),
+      data,
+    };
+    localStorage.setItem(url, JSON.stringify(cachedData));
+  } catch (error) {
+    console.error(error, 'heellooo');
+  }
 }
 
 export async function fetchPodcastsData(url) {
@@ -41,6 +45,7 @@ export async function fetchPodcastsData(url) {
   }
 
   const response = await fetchPodcasts(url);
+
   cacheData(url, response);
 
   return response;
