@@ -31,3 +31,6 @@ To start the production mode run:
 ```
 npm run build
 ```
+
+## Responsiveness
+![Podcaster-responsive](https://github.com/e-jordan-b/Podcaster/assets/113979927/139f88f1-ecd9-4348-b3fb-0f15eaf25d7e)
